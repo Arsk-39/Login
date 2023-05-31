@@ -51,7 +51,7 @@ public class LoginServlet extends HttpServlet {
 			request.getRequestDispatcher("/jsp/top.jsp").forward(request, response);
 		}else {
 			session.setAttribute("errormsg", "ユーザIDもしはパスワードが違います。");
-			response.sendRedirect("/jsp/top.jsp");
+			response.sendRedirect("/Login/jsp/top.jsp");
 		}
 	}catch (Exception e) {
 		e.printStackTrace();
