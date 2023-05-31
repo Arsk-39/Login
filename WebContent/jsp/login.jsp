@@ -11,7 +11,7 @@
 <c:if test="${errormsg != null }">${errormsg}</c:if>
 <c:remove var="errormsg"/>
 <p>パスワード</p>
-<form action="LoginServlet" method="post">
+<form action="login" method="post">
 <input type="text" name="user_id">
 <input type="password" name="password">
 <input type="submit" value="ログイン">
