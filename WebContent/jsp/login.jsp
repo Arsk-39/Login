@@ -12,7 +12,7 @@
 <c:remove var="errormsg"/>
 <p>パスワード</p>
 <form action="login" method="post">
-<input type="text" name="user_id">
+<input type="text" name="userid">
 <input type="password" name="password">
 <input type="submit" value="ログイン">
 </form>
