@@ -6,7 +6,7 @@ import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
 public class DAO {
-	public class DAO1 {
+
 		static DataSource ds;
 		
 			public Connection getConnection() throws Exception{
@@ -18,4 +18,4 @@ public class DAO {
 			}
 		}
 
-}
+

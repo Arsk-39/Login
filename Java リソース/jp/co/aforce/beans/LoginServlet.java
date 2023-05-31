@@ -1,32 +1,26 @@
 package jp.co.aforce.beans;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 
-import javax.naming.InitialContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.sql.DataSource;
 
-import tool.Page;
+import DAO.CustomerDAO;
 
 /**
  * Servlet implementation class Login
  */
 @WebServlet("/jsp/login")
-public class Login extends HttpServlet {
+public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Login() {
+    public LoginServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -43,28 +37,11 @@ public class Login extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		PrintWriter out=response.getWriter();
-		Page.header(out);
-		try {
-			InitialContext ic=new InitialContext();
-			DataSource ds=(DataSource)ic.lookup("java:/comp/env/jdbc/login_db");
-			Connection con=ds.getConnection();
-			String keyword=request.getParameter("password");
-			
-			PreparedStatement st=con.prepareStatement(
-					"select * from product where name like ?");
-			st.setString(1,"%"+ keyword+"%");
-			ResultSet rs=st.executeQuery();
-			
-			while (rs.next()) {
-				out.println(rs.getString("name")+"さん、こんにちは");
-			}
-			st.close();
-			con.close();
-		}catch(Exception e) {
-			e.printStackTrace(out);
-		}
-		Page.footer(out);
+	String userid=request.getParameter("userid");
+	String password=request.getParameter("password");
+	
+	CustomerDAO dao=new CustomerDAO();
+	LoginServlet login;
+	
 	}
-
-}
+	}

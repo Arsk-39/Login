@@ -1,15 +1,17 @@
 package been;
 
-public class Customer implements java.io.Serializable{
+import java.io.Serializable;
+
+public class login implements Serializable{
 	
-	private int id;
+	private int userid;
 	private String name;
 	private String password;
 	
 	public int getId() {
-		return id;
+		return userid;
 	}
-	public String getLongin() {
+	public String getName() {
 		return name;
 	}
 	public String getPassword() {
@@ -17,9 +19,9 @@ public class Customer implements java.io.Serializable{
 	}
 	
 	public void setId(int id) {
-		this.id=id;
+		this.userid=id;
 	}
-	public void setLogin(String name) {
+	public void setName(String name) {
 		this.name=name;
 	}
 	public void setPassword(String password) {
