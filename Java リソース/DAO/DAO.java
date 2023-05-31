@@ -1,32 +1,21 @@
-//package DAO;
-//
-//import java.sql.Connection;
-//import java.sql.PreparedStatement;
-//import java.sql.ResultSet;
-//
-//import been.Customer;
-//
-//public class DAO extends DAO1{
-//	public Customer search(String login, String password)
-//	throws Exception{
-//		Customer customer=null;
-//		
-//		Connection con=getConnection();
-//		
-//		PreparedStatement st;
-//		st=con.prepareStatement("select * from customer where login=? and password=?");
-//		st.setString(1, login);
-//		st.setString(2, password);
-//		ResultSet rs=st.executeQuery();
-//		
-//		while(rs.next()) {
-//			customer=new Customer();
-//			customer.setId(rs.getInt("id"));
-//			customer.setPassword(rs.getString("password"));
-//		}
-//		st.close();
-//		con.close();
-//		return customer;
-//	}
-//
-//}
+package DAO;
+
+import java.sql.Connection;
+
+import javax.naming.InitialContext;
+import javax.sql.DataSource;
+
+public class DAO {
+	public class DAO1 {
+		static DataSource ds;
+		
+			public Connection getConnection() throws Exception{
+				if (ds==null) {
+					InitialContext ic=new InitialContext();
+					ds=(DataSource)ic.lookup("java:/comp/env/jdbc/login_db");
+				}
+				return ds.getConnection();
+			}
+		}
+
+}

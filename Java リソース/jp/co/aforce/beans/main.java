@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class main {
-	public static void main(String[] args) {
+	public main(String[] args) {
 	      Connection con = null;
 	       try {
 	         con = DriverManager.getConnection("jdbc:mysql://localhost/login_db", "root", "Seiuti2010");
