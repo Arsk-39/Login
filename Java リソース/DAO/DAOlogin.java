@@ -21,8 +21,8 @@ public class DAOlogin extends DAO {
 		
 		while (rs.next()) {
 			login = new login();
-			login.setId(rs.getInt("id"));
-			login.setName(rs.getString("userid"));
+			login.setId(rs.getInt("userid"));
+			login.setName(rs.getString("name"));
 			login.setPassword(rs.getString("password"));
 		}
 		
