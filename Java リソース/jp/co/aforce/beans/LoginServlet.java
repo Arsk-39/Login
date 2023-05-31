@@ -7,8 +7,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import DAO.CustomerDAO;
+import DAO.DAOlogin;
+import been.login;
 
 /**
  * Servlet implementation class Login
@@ -29,19 +31,30 @@ public class LoginServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		response.sendRedirect("/Login/jsp/login.jsp");
 	}
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+	HttpSession session=request.getSession();
 	String userid=request.getParameter("userid");
 	String password=request.getParameter("password");
 	
-	CustomerDAO dao=new CustomerDAO();
-	LoginServlet login;
-	
+	DAOlogin dao = new DAOlogin();
+	login login;
+	try {
+		login = dao.search(userid, password);
+		if(login != null) {
+			session.setAttribute("login",login);
+			request.getRequestDispatcher("/jsp/top.jsp").forward(request, response);
+		}else {
+			session.setAttribute("errormsg", "ユーザIDもしはパスワードが違います。");
+			response.sendRedirect("/LoginSampleV1/jsp/login.jsp");
+		}
+	}catch (Exception e) {
+		e.printStackTrace();
+	}
 	}
 	}
