@@ -16,7 +16,7 @@ public class main {
 	         ResultSet result = st.executeQuery(sql);
 	 
 	         while(result.next()) {
-	           int id = result.getInt("user_id");
+	           int id = result.getInt("usersid");
 	           String name = result.getString("name");
 	           System.out.println("id: " + id);
 	           System.out.println("name: " + name);
