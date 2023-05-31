@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-ようこそ、${login.userid }さん
+<p>ようこそ、${login.userid }さん</p>
 </body>
 </html>
