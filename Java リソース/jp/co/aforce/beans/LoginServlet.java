@@ -15,7 +15,7 @@ import been.login;
 /**
  * Servlet implementation class Login
  */
-@WebServlet("/jsp/loginservlet")
+@WebServlet("/jsp/login")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
