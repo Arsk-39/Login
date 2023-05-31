@@ -22,6 +22,7 @@ public class CustomerDAO extends DAO{
 		
 		while(rs.next()) {
 			login=new LoginServlet();
+			
 		}
 		
 		st.close();
