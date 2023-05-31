@@ -48,7 +48,7 @@ public class LoginServlet extends HttpServlet {
 		login = dao.search(userid, password);
 		if(login != null) {
 			session.setAttribute("login",login);
-			request.getRequestDispatcher("/Login/jsp/top.jsp").forward(request, response);
+			request.getRequestDispatcher("jsp/top.jsp").forward(request, response);
 		}else {
 			session.setAttribute("errormsg", "ユーザIDもしはパスワードが違います。");
 			response.sendRedirect("/Login/jsp/login.jsp");
